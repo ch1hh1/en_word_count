@@ -1,0 +1,6 @@
+This text is a sample text.
+Created by using Google Translate from Japanese text. Grammatical correctness is not guaranteed.
+
+This sentence can be used as sample text when trying out a word counting program.
+
+Is there any difference between reading this text on a sunny afternoon and reading this text on a rainy morning? Is there any meaning in counting the number of words? Perhaps this program is incomplete. The, The, and THE are treated as different words. I'm sure there are better libraries out there. Is there any point in reinventing the wheel? Does the act of making something itself have meaning? Is there any point in creating a TODO app that will never be used? Is it necessary to ask whether it has meaning? Is there any meaning in asking? All questions are irrelevant. Don't worry about it. No need to think. In the real world, which has no meaning and only exists as a phenomenon, no one other than yourself can give it meaning. Only you can create meaning.
