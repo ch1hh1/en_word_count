@@ -13,10 +13,10 @@ export const makeWordSplitArr = (fileName: string): string[] => {
   if (ipt == null) throw new Error('No file');
   if (ipt === '') throw new Error('No statement');
 
+  // 英語以外を半角スペース化し、空白文字全てを半角スペースに寄せ、半角スペースで切り空白は除去
   const noLinefeed = ipt
-    .replace(/[^\t a-zA-Z0-9"' ]/g, '')
-    .replace(/\s/g, ' ')
-    .replace(/\"/g, ' ');
+    .replace(/[^a-zA-Z]/g, ' ')
+    .replace(/\s/g, ' ');
   const splitStrings: string[] = noLinefeed.split(' ').filter((str) => str !== '');
 
   return splitStrings;
