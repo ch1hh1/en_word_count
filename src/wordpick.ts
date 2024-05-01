@@ -4,18 +4,21 @@
  * @returns
  */
 export const makeWordSplitArr = (fileName: string): string[] => {
-  // inputフォルダ内に置いたファイルへの相対パス文字列
+  // nullかundefinedのチェックには==nullを使うべきらしい
+  if (fileName === '' || fileName == null) throw new Error('No file name');
+  if (fileName.toLowerCase().slice(-4) !== '.txt') throw new Error('Reject files other than text files');
+
   const pathStr: string = `../input/${fileName}`;
-  // ファイル読みこみ
   let ipt: string = require('fs').readFileSync(pathStr, 'utf-8');
-  // 文字列を整える
+  if (ipt == null) throw new Error('No file');
+  if (ipt === '') throw new Error('No statement');
+
   const noLinefeed = ipt
     .replace(/[^\t a-zA-Z0-9"' ]/g, '')
     .replace(/\s/g, ' ')
     .replace(/\"/g, ' ');
   const splitStrings: string[] = noLinefeed.split(' ').filter((str) => str !== '');
 
-  // テキストが単語で分割された配列を返却
   return splitStrings;
 };
 
