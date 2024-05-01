@@ -1,10 +1,11 @@
-import { makeWordAggregateJson, makeWordSplitArr } from './wordpick';
+import { filterAggregationTartget, makeWordAggregateJson, makeWordSplitArr } from './wordpick';
 
 export const main = (argv: string[]) => {
   const fileName = argv[2];
   try {
     const arr = makeWordSplitArr(fileName);
-    const json = makeWordAggregateJson(arr);
+    const filtered = filterAggregationTartget(arr);
+    const json = makeWordAggregateJson(filtered);
     console.log(json);
   } catch (e: any) {
     console.log(e.message);
