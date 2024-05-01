@@ -76,4 +76,34 @@ describe('makeWordSplitArr（英文テキストを1単語ずつ分解する処�
     const result = wordpick.makeWordSplitArr('test.txt');
     expect(result).toEqual(['abc', 'def']);
   });
+  test('正常系_全角スペース区切りの文章を単語別に配列に格納できる', () => {
+    spyReadFileSync.mockReturnValueOnce('abc　def');
+    const result = wordpick.makeWordSplitArr('test.txt');
+    expect(result).toEqual(['abc', 'def']);
+  });
+  test('正常系_改行区切りの文章を単語別に配列に格納できる', () => {
+    spyReadFileSync.mockReturnValueOnce('abc' + '\n' + 'def');
+    const result = wordpick.makeWordSplitArr('test.txt');
+    expect(result).toEqual(['abc', 'def']);
+  });
+  test('正常系_復帰区切りの文章を単語別に配列に格納できる', () => {
+    spyReadFileSync.mockReturnValueOnce('abc' + '\r' + 'def');
+    const result = wordpick.makeWordSplitArr('test.txt');
+    expect(result).toEqual(['abc', 'def']);
+  });
+  test('正常系_改ページ区切りの文章を単語別に配列に格納できる', () => {
+    spyReadFileSync.mockReturnValueOnce('abc' + '\f' + 'def');
+    const result = wordpick.makeWordSplitArr('test.txt');
+    expect(result).toEqual(['abc', 'def']);
+  });
+  test('正常系_水平タブ区切りの文章を単語別に配列に格納できる', () => {
+    spyReadFileSync.mockReturnValueOnce('abc' + '\t' + 'def');
+    const result = wordpick.makeWordSplitArr('test.txt');
+    expect(result).toEqual(['abc', 'def']);
+  });
+  test('正常系_垂直タブ区切りの文章を単語別に配列に格納できる', () => {
+    spyReadFileSync.mockReturnValueOnce('abc' + '\v' + 'def');
+    const result = wordpick.makeWordSplitArr('test.txt');
+    expect(result).toEqual(['abc', 'def']);
+  });
 });
